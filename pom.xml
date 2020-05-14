@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.learninghub</groupId>
-	<artifactId>online-quiz</artifactId>
+	<artifactId>learnerhub</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>online-quiz</name>
+	<name>learnerhub</name>
 	<description>full online quiz project</description>
 
 	<properties>

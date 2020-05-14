@@ -6,7 +6,6 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Date;
 
 @MappedSuperclass
@@ -15,7 +14,7 @@ import java.util.Date;
 
 
 
-public abstract class Tracker implements Serializable {
+public abstract class Tracker{
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at",nullable = false,updatable=false)
     private Date createdAt;
