@@ -1,4 +1,4 @@
-package com.learninghub.onlinequiz.models;
+package com.learninghub.onlinequiz.ExtendClass;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.CreatedBy;
@@ -13,8 +13,7 @@ import java.util.Date;
 @JsonIgnoreProperties(value = {"createdAt","updatedAt","createdBy","updatedBy"},allowGetters = true)
 
 
-
-public abstract class Tracker{
+public abstract class Tracker {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at",nullable = false,updatable=false)
     private Date createdAt;
@@ -24,24 +23,13 @@ public abstract class Tracker{
     @LastModifiedDate
     private Date updatedAt;
 
-    @Column(name =  "created_by",nullable = false)
-    @CreatedBy
-    private  String createdBy;
-
-    @Column(name = "updated_by",nullable = false)
-    @CreatedBy
-    private  String updatedBy;
-
-
     public Tracker(){
 
     }
 
-    public Tracker(Date createdAt, Date updatedAt, String createdBy, String updatedBy) {
+    public Tracker(Date createdAt, Date updatedAt) {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
-        this.createdBy = createdBy;
-        this.updatedBy = updatedBy;
     }
 
     public Date getCreatedAt() {
@@ -58,21 +46,5 @@ public abstract class Tracker{
 
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
-    }
-
-    public String getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public String getUpdatedBy() {
-        return updatedBy;
-    }
-
-    public void setUpdatedBy(String updatedBy) {
-        this.updatedBy = updatedBy;
     }
 }

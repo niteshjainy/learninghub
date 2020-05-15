@@ -1,5 +1,7 @@
 package com.learninghub.onlinequiz.models;
 
+import com.learninghub.onlinequiz.ExtendClass.Tracker;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="User")
-public class User extends Tracker{
+public class User extends Tracker {
 
 	@Id @GeneratedValue	@Column(name="user_id") private int userId;
 	@Column(name="user_first_name")

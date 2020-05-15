@@ -1,4 +1,6 @@
 package com.learninghub.onlinequiz.models;
+import com.learninghub.onlinequiz.ExtendClass.AdminTracker;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Question")
-public class Question extends Tracker{
+public class Question extends AdminTracker {
 		@Id @GeneratedValue(strategy=GenerationType.AUTO) @Column(name="question_id") private int questionId;
 		@Column(name="question")
 	private String question;

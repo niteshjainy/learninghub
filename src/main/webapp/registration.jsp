@@ -19,7 +19,7 @@
                         <br/>
                     </div>
                     <div class="col-md-9 register-right">
-                        <form action="registration" method="POST">
+                        <form action="registration" modelAttribute="user" method="POST">
                                 <h3 class="register-heading">Fill the form to begin your journey</h3>
                                 <div class="row register-form">
                                     <div class="col-md-6">

@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Entity
 
 @Table(name="Result")
-public class Result extends Tracker{
+public class Result {
 
 	@Id @GeneratedValue @Column(name="result_id")	private int resultId;
 	@Column(name="attempted")

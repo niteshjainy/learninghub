@@ -1,5 +1,7 @@
 package com.learninghub.onlinequiz.models;
 
+import com.learninghub.onlinequiz.ExtendClass.AdminTracker;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Feedback")
-public class Feedback extends Tracker{
+public class Feedback extends AdminTracker {
 	
 	@Id @GeneratedValue @Column(name="feedback_id") private int feedbackId;
 	@Column(name="first_answer")
