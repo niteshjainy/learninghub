@@ -18,14 +18,29 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand">
-          <span class="glyphicon glyphicon-user"></span> Welcome Nitesh</a>
+          <a class="navbar-brand">Learninghub</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Category</a></li>
-            <li><a href="#">My Profile</a></li>
-            <li><a href="#">My Results</a></li>
+            <li class="active"><a href="#">Home</a></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">User Management <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">All Users list</a></li>
+                <li><a href="#">deleted User List</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Question Management <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Add or edit Category</a></li>
+                <li><a href="#">Add new questions</a></li>
+                <li><a href="#">edit questions</a></li>
+                <li><a href="#">search questions</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Show all Feedbacks</a></li>
+            <li><a href="#">show tables</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
@@ -33,5 +48,6 @@
         </div>
       </div>
     </nav>
+
 </body>
 </html>
