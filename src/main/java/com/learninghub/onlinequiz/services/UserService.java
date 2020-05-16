@@ -6,16 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
 @Service
 public interface UserService {
 
-    public String addUser(User user,BindingResult result);
+    public ModelAndView addUser(User user,BindingResult result);
     public List<User> getAllUser();
 
-    public String getRegistration(Model model);
+    public ModelAndView getRegistration(Model model);
 
-    public String home(Model model);
+    public ModelAndView home(Model model);
+
 }

@@ -19,7 +19,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand">
-          <span class="glyphicon glyphicon-user"></span> Welcome Nitesh</a>
+          <span class="glyphicon glyphicon-user"></span> Welcome ${firstName}</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
