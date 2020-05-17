@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 
-import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -30,7 +30,6 @@ public class UserServiceImpl implements UserService {
         userrepo.save(user);
         return "home";
     }
-
 
 
     @Override

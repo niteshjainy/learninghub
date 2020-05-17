@@ -1,18 +1,13 @@
 package com.learninghub.onlinequiz.models;
 
-import com.learninghub.onlinequiz.ExtendClass.AdminTracker;
+import com.learninghub.onlinequiz.ExtendClass.Tracker;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Optional;
 
 @Entity
 @Table(name="Feedback")
-public class Feedback extends AdminTracker {
+public class Feedback extends Tracker {
 	
 	@Id @GeneratedValue @Column(name="feedback_id") private int feedbackId;
 	@Column(name="first_answer")
@@ -22,7 +17,7 @@ public class Feedback extends AdminTracker {
 	@Column(name="third_answer")
 	private String thirdAnswer;
 
-	@OneToOne()
+	@OneToOne(fetch= FetchType.LAZY)
 	@JoinColumn(name="user_id")
 	User user;
 	

@@ -1,4 +1,4 @@
-package com.learninghub.onlinequiz.repo;
+package com.learninghub.onlinequiz.Repositories;
 
 import com.learninghub.onlinequiz.models.Feedback;
 import org.springframework.data.jpa.repository.JpaRepository;

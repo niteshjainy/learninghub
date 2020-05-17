@@ -1,10 +1,12 @@
 package com.learninghub.onlinequiz.services;
 
 import com.learninghub.onlinequiz.models.Feedback;
+import org.springframework.validation.BindingResult;
 
 import java.util.List;
 
 public interface FeedbackService {
-    public List<Feedback> getAllFeedbacks();
+     List<Feedback> getAllFeedbacks();
+
+    void addFeedback(Feedback feedback);
 }
-    
