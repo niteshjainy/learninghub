@@ -9,7 +9,6 @@
         <jsp:include page="homenavbar.jsp" />
         <div class="container">
 
-
         </div>
     </body>
 </html>

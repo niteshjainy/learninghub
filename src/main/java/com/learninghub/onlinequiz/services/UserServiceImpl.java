@@ -6,9 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
-import java.util.Optional;
+
+import java.util.*;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -18,33 +22,91 @@ public class UserServiceImpl implements UserService {
     @Autowired
     UserRepo userrepo;
 
-    public String addUser(User user, BindingResult result) {
+    public ModelAndView addUser(User user, BindingResult result) {
         java.util.Date now = new java.util.Date();
         user.setUserActive(true);
         user.setCreatedAt(now);
         user.setUpdatedAt(now);
 
         if(result.hasErrors()){
-            return "registration";
+            Map<String,String> errors = new HashMap<>();
+            for(FieldError error: result.getFieldErrors()){
+                errors.put(error.getField(),error.getDefaultMessage());
+            }
+
+            ModelAndView mv =new ModelAndView("registration.jsp");
+            return mv;
         }
-        userrepo.save(user);
-        return "home";
+        else {
+            userrepo.save(user);
+            ModelAndView mv = new ModelAndView("home.jsp");
+            mv.addObject("firstName",user.getUserFirstName());
+            return mv;
+        }
     }
 
 
     @Override
     public List<User> getAllUser() {
-        return null;
+        return (List<User>) userrepo.findAll();
     }
 
-    public String getRegistration(Model model){
+    public ModelAndView getRegistration(Model model){
+        ModelAndView mv = new ModelAndView("registration.jsp");
             model.addAttribute("user",new User());
-            return "registration";
+            return mv;
 
     }
 
-    public String home(Model model){
-        return "home";
+    public ModelAndView home(Model model){
+        ModelAndView mv = new ModelAndView("home.jsp");
+
+        return mv;
+    }
+
+    public ModelAndView login(Model model,String error,String logout){
+
+
+        if(error != null){
+            model.addAttribute("error","your username or password is invalid");
+
+        }
+        if(logout !=  null){
+            model.addAttribute("message","you have been logged out succesfully.");
+        }
+        ModelAndView mv = new ModelAndView("index.jsp");
+        return mv;
+
+    }
+
+
+    public ModelAndView loginVerify(String email,String pass,BindingResult result){
+        List<User> all =  userservice.getAllUser();
+        int flag = 0;
+        String name = null;
+        for(User user1 : all) {
+            if (email == user1.getUserEmail()) {
+                if (pass == user1.getUserPassword()) {
+                    flag = 1;
+                    name = user1.getUserFirstName();
+                    break;
+                }
+            }
+        }
+        if (flag == 0 || result.hasErrors()){
+            ModelAndView mv = new ModelAndView("index.jsp");
+
+            return mv;
+
+        }
+        else{
+            ModelAndView mv = new ModelAndView("home.jsp");
+            mv.addObject("firstName",name);
+            return mv;
+
+
+        }
+
     }
 
 }
