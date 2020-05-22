@@ -1,24 +1,20 @@
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+  <jsp:include page="/blocks/header.jsp" />
+  <style type="text/css">
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-<head>
- <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-    <body >
-    <jsp:include page="adminnavbar.jsp" />
+.table-container
+{
+	background-color: #fff;
+    box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 20px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.3);
+    border-radius: 8px;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+</style>
+  <jsp:include page="/blocks/body.jsp" />
+    <jsp:include page="/blocks/adminnavbar.jsp" />
         <div class="container">
             <div class="row " style="margin-top: 25px">
-
-                  	<table class="table table-hover table-bordered table-sm table-dark">
+        	<table class="table table-container table-bordered table-sm table-dark">
 							  <thead>
 							    <tr>
 							      <th scope="col">Feedback Id</th>
@@ -30,16 +26,16 @@
 							  </thead>
 							  <tbody>
                                   <c:forEach var = "result" items = "${feedbacks}">
-						          <tr>
+                                  <tr>
                                       <td><c:out value = "${result.feedbackId}"/></td>
                                       <td><c:out value = "${result.firstAnswer}"/></td>
                                       <td><c:out value = "${result.secondAnswer}"/></td>
                                       <td><c:out value = "${result.thirdAnswer}"/></td>
-                                      <td><c:out value = "${result.user.firstName}" + "${result.user.lastName}"/></td>
+                                      <td><c:out value = "${result.user.userFirstName} ${result.user.userLastName} "/></td>
 						          </tr>
+						          </c:forEach>
 							  </tbody>
-						</table>
-                </div>
+					</table>
             </div>
-    </body>
-</html>
+        </div>
+    <jsp:include page="/blocks/footer.jsp" />

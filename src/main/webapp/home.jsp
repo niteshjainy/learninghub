@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-      <title>Bootstrap Example</title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-    <body>
-        <jsp:include page="homenavbar.jsp" />
-        <div class="container">
-
-        </div>
-    </body>
-</html>
+<jsp:include page="/blocks/header.jsp" />
+<jsp:include page="/blocks/body.jsp" />
+<jsp:include page="/blocks/homenavbar.jsp" />
+<div class="container"></div>
+<jsp:include page="/blocks/footer.jsp" />

@@ -21,8 +21,9 @@ public class FeedbackController {
     @RequestMapping("/getAllFeedbacks")
     public ModelAndView getAllFeedbacks() {
         ModelAndView mv = new ModelAndView("showfeedbacks.jsp");
-        List<Feedback> feedbacks = feedbackserviceimpl.getAllFeedbacks();
-        mv.addObject("feedbacks", feedbacks);
+        List<Feedback> fback = feedbackserviceimpl.getAllFeedbacks();
+        System.out.println(fback);
+        mv.addObject("feedbacks", fback);
         return mv;
     }
 

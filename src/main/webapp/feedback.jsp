@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-      <title>Bootstrap Example</title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="form.css" >
-
-    </head>
-    <body>
-        <div class="imagebg">ff</div>
-        <jsp:include page="homenavbar.jsp" />
-        <div class="container">
+<jsp:include page="/blocks/header.jsp" />
+ <link rel="stylesheet" type="text/css" href="/css/form.css" >
+ <jsp:include page="/blocks/body.jsp" />
+ <jsp:include page="/blocks/homenavbar.jsp" />
+        <div class="container ">
             <div class="row " style="margin-top: 30px">
-            <div class="col-md-8 col-md-offset-2 form-container">
+            <div class="form-container col-md-8 col-md-offset-2 ">
                     <h4 style="text-align:center"> Please provide your feedback here </h4>
                        <hr>
                     <form role="form" method="POST" Action="addFeedback">
@@ -43,5 +35,4 @@
                 </div>
             </div>
         </div>
-    </body>
-</html>
+ <jsp:include page="/blocks/footer.jsp" />
