@@ -31,6 +31,7 @@ public class FeedbackController {
     public ModelAndView addFeedback(@ModelAttribute Feedback feedback) {
         ModelAndView mv = new ModelAndView("home.jsp");
         feedbackserviceimpl.addFeedback(feedback);
+        mv.addObject("status","true");
         return mv;
     }
 }

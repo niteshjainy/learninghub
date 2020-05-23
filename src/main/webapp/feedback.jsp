@@ -4,6 +4,7 @@
  <jsp:include page="/blocks/homenavbar.jsp" />
         <div class="container ">
             <div class="row " style="margin-top: 30px">
+
             <div class="form-container col-md-8 col-md-offset-2 ">
                     <h4 style="text-align:center"> Please provide your feedback here </h4>
                        <hr>
@@ -28,7 +29,7 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12 form-group">
-                                <button type="submit" class="btn btn-lg btn-info btn-block" >Submit </button>
+                                <button type="submit" onclick=" swal("done!", "Thanx for submit feedback!", "success")" class="btn btn-lg btn-info btn-block" >Submit </button>
                             </div>
                         </div>
                     </form>
