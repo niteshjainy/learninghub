@@ -35,12 +35,14 @@ public class UserController{
     }
     @GetMapping("/index")
     public ModelAndView index(Model model,String error,String logout){
-        return impl.login(model,error,logout);
+        return impl.login();
     }
+
     @PostMapping("/index")
-    public ModelAndView index(@RequestBody String email,@RequestBody String pass,BindingResult result){
-        return impl.loginVerify(email,pass,result);
+    public ModelAndView index(@ModelAttribute("username") String  username , @ModelAttribute("password") String password,BindingResult result){
+        return impl.loginVerify(username,password,result);
     }
+
 
 
 

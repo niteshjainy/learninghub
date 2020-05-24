@@ -9,6 +9,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name="User")
@@ -58,8 +59,16 @@ public class User extends Tracker {
 	@Column(name="user_active")
 	private Boolean userActive;
 
-	public User(Date createdAt, Date updatedAt, int userId, @NotBlank(message = "first name can not blank") @NotNull(message = "first name can not be null") String userFirstName, String userLastName, @Email(message = "email invalid ") @NotBlank(message = "email not blank") String userEmail, @NotBlank(message = "password can not blank") @NotNull(message = "password cannot be null") String userPassword, @Pattern(regexp = "[0-9]+", message = "invalid mobile number") @NotBlank(message = "number cannot be blank  ") @NotNull String userContact, String userState, String userDob, String userDegree, Boolean userActive) {
+	private String roles;
+	public User(){
+		super();
+	}
+
+	public User(Date createdAt, Date updatedAt) {
 		super(createdAt, updatedAt);
+	}
+
+	public User(int userId, @NotBlank(message = "first name can not blank") @NotNull(message = "first name can not be null") String userFirstName, String userLastName, @Email(message = "email invalid ") @NotBlank(message = "email not blank") String userEmail, @NotBlank(message = "password can not blank") @NotNull(message = "password cannot be null") String userPassword, @Pattern(regexp = "[0-9]+", message = "invalid mobile number") @NotBlank(message = "number cannot be blank  ") @NotNull String userContact, String userState, String userDob, String userDegree, Boolean userActive, String roles) {
 		this.userId = userId;
 		this.userFirstName = userFirstName;
 		this.userLastName = userLastName;
@@ -70,10 +79,7 @@ public class User extends Tracker {
 		this.userDob = userDob;
 		this.userDegree = userDegree;
 		this.userActive = userActive;
-	}
-
-	public User(){
-
+		this.roles = roles;
 	}
 
 	public int getUserId() {
@@ -154,5 +160,13 @@ public class User extends Tracker {
 
 	public void setUserActive(Boolean userActive) {
 		this.userActive = userActive;
+	}
+
+	public String getRoles() {
+		return roles;
+	}
+
+	public void setRoles(String roles) {
+		this.roles = roles;
 	}
 }

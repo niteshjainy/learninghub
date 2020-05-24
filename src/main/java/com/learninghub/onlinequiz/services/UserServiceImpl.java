@@ -27,6 +27,7 @@ public class UserServiceImpl implements UserService {
         user.setUserActive(true);
         user.setCreatedAt(now);
         user.setUpdatedAt(now);
+        user.setRoles("ROLE_USER");
 
         if(result.hasErrors()){
             Map<String,String> errors = new HashMap<>();
@@ -37,12 +38,11 @@ public class UserServiceImpl implements UserService {
             ModelAndView mv =new ModelAndView("registration.jsp");
             return mv;
         }
-        else {
+
             userrepo.save(user);
             ModelAndView mv = new ModelAndView("home.jsp");
             mv.addObject("firstName",user.getUserFirstName());
             return mv;
-        }
     }
 
 
@@ -64,16 +64,7 @@ public class UserServiceImpl implements UserService {
         return mv;
     }
 
-    public ModelAndView login(Model model,String error,String logout){
-
-
-        if(error != null){
-            model.addAttribute("error","your username or password is invalid");
-
-        }
-        if(logout !=  null){
-            model.addAttribute("message","you have been logged out succesfully.");
-        }
+    public ModelAndView login(){
         ModelAndView mv = new ModelAndView("index.jsp");
         return mv;
 
@@ -85,13 +76,12 @@ public class UserServiceImpl implements UserService {
         int flag = 0;
         String name = null;
         for(User user1 : all) {
-            if (email == user1.getUserEmail()) {
-                if (pass == user1.getUserPassword()) {
+            if (email.equals(user1.getUserEmail()) && (pass.equals(user1.getUserPassword()))){
                     flag = 1;
                     name = user1.getUserFirstName();
                     break;
                 }
-            }
+
         }
         if (flag == 0 || result.hasErrors()){
             ModelAndView mv = new ModelAndView("index.jsp");
