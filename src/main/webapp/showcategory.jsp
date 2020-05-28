@@ -1,3 +1,4 @@
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <head>
 <style type="text/css">
 
@@ -27,20 +28,12 @@ background-color : #F8F8FA;
 }
 </style>
 </head>
-<div class="container">
-    <div class="col-md-4 col-md-offset-1 grow">
-        <div class="panel inner">
-          <div class="panel-body">Python</div>
+<div class="container" style="margin-top:3%">
+    <c:forEach var = "result" items = "${category}">
+        <div class="col-md-4 col-md-offset-1 grow">
+            <div class="panel inner">
+              <div class="panel-body"><c:out value = "${result.subjectCategory}"/></div>
+            </div>
         </div>
-    </div>
-    <div class="div col-md-4 col-md-offset-1 grow">
-        <div class="panel inner">
-          <div class="panel-body">Java</div>
-        </div>
-    </div>
-    <div class="div col-md-4 col-md-offset-1 grow">
-       <div class="panel inner">
-         <div class="panel-body">PHP</div>
-       </div>
-    </div>
+    </c:forEach>
 </div>

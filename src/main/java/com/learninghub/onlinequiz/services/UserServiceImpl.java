@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
         user.setUserActive(true);
         user.setCreatedAt(now);
         user.setUpdatedAt(now);
-        user.setRoles("ROLE_USER");
+        user.setRole("User");
 
         if(result.hasErrors()){
             Map<String,String> errors = new HashMap<>();

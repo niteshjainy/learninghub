@@ -13,10 +13,12 @@ setTimeout(function() { $("#status").hide(); }, 2000);
                 <div style="margin-top:5%;margin-bottom:5%" class="panel-body">
                     <div class="col-md-12">
                     <h4 id=status style="text-align:center;background-color:#ffebcd"> ${msg}</h4>
-                         <div class="form-group">
-                           <textarea class="form-control" placeholder="enter category name here.." id="subjectCategory"></textarea>
-                         </div>
-                         <button id="update" class="btn btn-block btn-warning">Submit</button>
+                        <form action="addcategory" method="post">
+                             <div class="form-group">
+                               <textarea class="form-control" placeholder="enter category name here.." rows ="3" name="subjectCategory"></textarea>
+                             </div>
+                             <button type="submit" class="btn btn-block btn-warning">Submit</button>
+                        </form>
                    </div>
                  </div>
              </div>

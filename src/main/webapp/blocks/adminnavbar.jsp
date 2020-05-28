@@ -21,15 +21,16 @@
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">Question Management <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="editcategory.jsp">Add or edit Category</a></li>
-                <li><a href="addquestion.jsp">Add new questions</a></li>
+                <li><a href="addcategory.jsp">Add or delete Category</a></li>
+                <li><a href="editcategory.jsp">edit or delete Category</a></li>
+                <li><a href="/getall">Add new questions</a></li>
                 <li><a href="editquestion.jsp">edit questions</a></li>
                 <li><a href="#">search questions</a></li>
               </ul>
             </li>
             <li><a href="http://localhost:8080/getAllFeedbacks">Show all Feedbacks</a></li>
             <li><a href="#">show tables</a></li>
-            <li><a href="adminshowcategory.jsp">All Categories</a></li>
+
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>

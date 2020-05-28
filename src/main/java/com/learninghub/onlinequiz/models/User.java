@@ -59,7 +59,9 @@ public class User extends Tracker {
 	@Column(name="user_active")
 	private Boolean userActive;
 
-	private String roles;
+	@Column(name="role")
+	private String role;
+
 	public User(){
 		super();
 	}
@@ -68,7 +70,7 @@ public class User extends Tracker {
 		super(createdAt, updatedAt);
 	}
 
-	public User(int userId, @NotBlank(message = "first name can not blank") @NotNull(message = "first name can not be null") String userFirstName, String userLastName, @Email(message = "email invalid ") @NotBlank(message = "email not blank") String userEmail, @NotBlank(message = "password can not blank") @NotNull(message = "password cannot be null") String userPassword, @Pattern(regexp = "[0-9]+", message = "invalid mobile number") @NotBlank(message = "number cannot be blank  ") @NotNull String userContact, String userState, String userDob, String userDegree, Boolean userActive, String roles) {
+	public User(int userId, @NotBlank(message = "first name can not blank") @NotNull(message = "first name can not be null") String userFirstName, String userLastName, @Email(message = "email invalid ") @NotBlank(message = "email not blank") String userEmail, @NotBlank(message = "password can not blank") @NotNull(message = "password cannot be null") String userPassword, @Pattern(regexp = "[0-9]+", message = "invalid mobile number") @NotBlank(message = "number cannot be blank  ") @NotNull String userContact, String userState, String userDob, String userDegree, Boolean userActive, String role) {
 		this.userId = userId;
 		this.userFirstName = userFirstName;
 		this.userLastName = userLastName;
@@ -79,7 +81,7 @@ public class User extends Tracker {
 		this.userDob = userDob;
 		this.userDegree = userDegree;
 		this.userActive = userActive;
-		this.roles = roles;
+		this.role = role;
 	}
 
 	public int getUserId() {
@@ -162,11 +164,11 @@ public class User extends Tracker {
 		this.userActive = userActive;
 	}
 
-	public String getRoles() {
-		return roles;
+	public String getRole() {
+		return role;
 	}
 
-	public void setRoles(String roles) {
-		this.roles = roles;
+	public void setRole(String role) {
+		this.role = role;
 	}
 }

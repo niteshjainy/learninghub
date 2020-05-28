@@ -1,5 +1,6 @@
 package com.learninghub.onlinequiz.services;
 
+import com.learninghub.onlinequiz.models.Category;
 import com.learninghub.onlinequiz.models.Question;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;

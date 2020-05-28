@@ -13,7 +13,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name="Question")
 public class Question extends AdminTracker {
-		@Id @GeneratedValue(strategy=GenerationType.AUTO) @Column(name="question_id") private int questionId;
+		@Id @GeneratedValue(strategy=GenerationType.AUTO) @Column(name="question_id")
+		private int questionId;
+
 		@Column(name="question")
 	private String question;
 		@Column(name="first_option")
