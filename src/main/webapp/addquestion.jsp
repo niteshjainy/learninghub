@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
         <h3 style="background-color:#ffa07a;text-align:center;padding:1%"> Add new question from here....</h3>
-            <form action="addquestion" method="post">
+            <form action="/addquestion" method="post">
                  <div class="form-group">
                    <select class="form-control" name="select">
                    <option>Java</option>

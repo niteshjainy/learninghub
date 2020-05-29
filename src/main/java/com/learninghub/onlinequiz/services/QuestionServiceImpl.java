@@ -22,6 +22,7 @@ public class QuestionServiceImpl implements QuestionService {
         question.setUpdatedBy("");
         question.setCreatedAt(today);
         question.setUpdatedAt(today);
+        question.setCategory(question.getCategory());
         questionrepo.save(question);
 
     }

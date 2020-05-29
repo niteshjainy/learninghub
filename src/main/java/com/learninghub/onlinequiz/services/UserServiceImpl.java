@@ -98,5 +98,17 @@ public class UserServiceImpl implements UserService {
         }
 
     }
+    public ModelAndView getAllUsers() {
+        ModelAndView mv = new ModelAndView("showusers.jsp");
+        List<User> users = (List<User>) userrepo.findAll();
+        System.out.println(users);
+        mv.addObject("users",users);
+        return mv;
+    }
+
+    public void delete_category(Integer id) {
+        userrepo.deleteById(id);
+
+    }
 
 }
