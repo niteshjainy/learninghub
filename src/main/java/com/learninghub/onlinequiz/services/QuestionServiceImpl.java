@@ -1,6 +1,8 @@
 package com.learninghub.onlinequiz.services;
 
+import com.learninghub.onlinequiz.Repositories.CategoryRepo;
 import com.learninghub.onlinequiz.Repositories.QuestionRepo;
+import com.learninghub.onlinequiz.models.Category;
 import com.learninghub.onlinequiz.models.Question;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,18 +14,23 @@ import java.util.List;
 public class QuestionServiceImpl implements QuestionService {
     @Autowired
     QuestionRepo questionrepo;
-
+    @Autowired
+    CategoryRepo categoryrepo;
 
 
     @Override
-    public void addQuestion(Question question) {
+    public void addQuestion(Question questionObj) {
+
+        Category category=categoryrepo.findById(1).get();
+
+        questionObj.setCategory(category);
         Date today=new Date();
-        question.setCreatedBy("");
-        question.setUpdatedBy("");
-        question.setCreatedAt(today);
-        question.setUpdatedAt(today);
-        question.setCategory(question.getCategory());
-        questionrepo.save(question);
+
+        questionObj.setCreatedBy("");
+        questionObj.setUpdatedBy("");
+        questionObj.setCreatedAt(today);
+        questionObj.setUpdatedAt(today);
+        questionrepo.save(questionObj);
 
     }
 

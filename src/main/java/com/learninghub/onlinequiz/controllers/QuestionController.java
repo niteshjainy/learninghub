@@ -4,6 +4,7 @@ import com.learninghub.onlinequiz.ExtendClass.AdminTracker;
 import com.learninghub.onlinequiz.ExtendClass.Tracker;
 import com.learninghub.onlinequiz.Repositories.QuestionRepo;
 import com.learninghub.onlinequiz.models.Category;
+import com.learninghub.onlinequiz.models.Feedback;
 import com.learninghub.onlinequiz.models.Question;
 import com.learninghub.onlinequiz.services.QuestionServiceImpl;
 import org.aspectj.weaver.tools.Trace;
@@ -21,11 +22,13 @@ public class QuestionController {
     @Autowired
     QuestionServiceImpl impl;
 
-    @PostMapping("/addquestion") //specifiy what type of dat to sent to server
-    public void  addQuestion(@RequestBody Question question) {
-        impl.addQuestion(question);
+    @PostMapping("/addquestion")
+    public ModelAndView  addQuestion(@ModelAttribute Question questionObj){
+        ModelAndView mv = new ModelAndView("addquestion.jsp");
+          impl.addQuestion(questionObj);
+            mv.addObject("msg", "Added successful");
+            return mv;
     }
-
 
 
     @GetMapping(path="/question")

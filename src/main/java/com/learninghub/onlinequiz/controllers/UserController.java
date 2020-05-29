@@ -1,20 +1,15 @@
 package com.learninghub.onlinequiz.controllers;
 
 import com.learninghub.onlinequiz.Repositories.UserRepo;
-import com.learninghub.onlinequiz.models.Feedback;
 import com.learninghub.onlinequiz.models.User;
 import com.learninghub.onlinequiz.services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class UserController{
@@ -60,17 +55,25 @@ public class UserController{
     }
 
 
-    @GetMapping("/getallusers")
-    public ModelAndView getAllUsers() {
-        return impl.getAllUsers();
+
+
+
+
+    @GetMapping("/getusers")
+    public List<User> get() {
+        return userrepo.findAll();
     }
 
-    @GetMapping("/delete/{userId}")
-    public void deleteuser(@PathVariable Integer id){
-        User user = userrepo.getOne(id);
+    @DeleteMapping("/deleteuser/{userId}")
+    public void deleteuser(@PathVariable Integer userId) {
+        User user = userrepo.getOne(userId);
         user.setUserActive(false);
+        userrepo.deleteById(userId);
+
+    }
     }
 
-}
+
+
 
 

@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
         user.setUserActive(true);
         user.setCreatedAt(now);
         user.setUpdatedAt(now);
-        user.setRoles("ROLE_USER");
+        user.setRole("User");
 
         if(result.hasErrors()){
             Map<String,String> errors = new HashMap<>();
@@ -98,13 +98,7 @@ public class UserServiceImpl implements UserService {
         }
 
     }
-    public ModelAndView getAllUsers() {
-        ModelAndView mv = new ModelAndView("showusers.jsp");
-        List<User> users = (List<User>) userrepo.findAll();
-        System.out.println(users);
-        mv.addObject("users",users);
-        return mv;
-    }
+
 
     public void delete_category(Integer id) {
         userrepo.deleteById(id);
