@@ -14,7 +14,7 @@ setTimeout(function() { $("#status").hide(); }, 2000);
                     <div class="col-md-12">
                     <h4 id=status style="text-align:center;background-color:#ffebcd"> ${msg}</h4>
                          <div class="form-group">
-                           <textarea class="form-control" placeholder="enter category name here.." id="subjectCategory"></textarea>
+                           <textarea class="form-control" placeholder="enter category name here.." row="3" id="subjectCategory"></textarea>
                          </div>
                          <button id="update" class="btn btn-block btn-warning">Submit</button>
                    </div>

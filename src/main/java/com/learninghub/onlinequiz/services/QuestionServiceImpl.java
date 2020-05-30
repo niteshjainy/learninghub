@@ -6,9 +6,12 @@ import com.learninghub.onlinequiz.models.Category;
 import com.learninghub.onlinequiz.models.Question;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.validation.constraints.Null;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class QuestionServiceImpl implements QuestionService {
@@ -19,17 +22,31 @@ public class QuestionServiceImpl implements QuestionService {
 
 
     @Override
-    public void addQuestion(Question questionObj) {
+    public void addQuestion(@RequestParam Map<String, String> questionObj) {
 
-        Category category=categoryrepo.findById(1).get();
+        Question question = new Question();
+        String id= (questionObj.get("id"));
+        if(id!=null)
+        {
+            question.setQuestionId(Integer.parseInt(id));
+        }
+        String subjectCategory= questionObj.get("subjectCategory");
+        Category category = (Category) categoryrepo.findBySubjectCategory(subjectCategory).get(0);
+        question.setCategory(category);
 
-        questionObj.setCategory(category);
+        question.setQuestion(questionObj.get("question"));
+        question.setFirstOption(questionObj.get("firstOption"));
+        question.setFourthOption(questionObj.get("fourthOption"));
+        question.setThirdOption(questionObj.get("thirdOption"));
+        question.setSecondOption(questionObj.get("secondOption"));
+        question.setAnswer(questionObj.get("answer"));
+
         Date today=new Date();
-        questionObj.setCreatedBy("");
-        questionObj.setUpdatedBy("");
-        questionObj.setCreatedAt(today);
-        questionObj.setUpdatedAt(today);
-        questionrepo.save(questionObj);
+        question.setCreatedBy("");
+        question.setUpdatedBy("");
+        question.setCreatedAt(today);
+        question.setUpdatedAt(today);
+        questionrepo.save(question);
 
     }
 

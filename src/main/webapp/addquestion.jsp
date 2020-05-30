@@ -9,29 +9,27 @@
         <h3 style="background-color:#ffa07a;text-align:center;padding:1%"> Add new question from here....</h3>
             <form action="addquestion" method="post">
                  <div class="form-group">
-                   <select class="form-control" name="category">
-                   <c:forEach var = "result" items = "${category}">
-                   <option value="${result.id}"><c:out value = "${result.subjectCategory}"/></option>
-                   </c:forEach>
+                   <select class="form-control" id="selectcategory" name="subjectCategory">
+                   <option value="" disabled selected>select Category</option>
                    </select>
                  </div>
                  <div class="form-group">
-                   <input type="text" class="form-control" placeholder="enter question here.."  name="question">
+                   <input type="text" class="form-control" placeholder="enter question here.."  name="question"/>
                  </div>
                  <div class="form-group">
-                    <input type="text" class="form-control" placeholder="option 1" name="firstOption">
+                    <input type="text" class="form-control" placeholder="option 1" name="firstOption"/>
                  </div>
                  <div class="form-group">
-                     <input type="text" class="form-control" placeholder="option 2" name="secondOption">
+                     <input type="text" class="form-control" placeholder="option 2" name="secondOption"/>
                   </div>
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="option 3" name="thirdOption">
+                    <input type="text" class="form-control" placeholder="option 3" name="thirdOption"/>
                   </div>
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="option 4" name="fourthOption">
+                    <input type="text" class="form-control" placeholder="option 4" name="fourthOption"/>
                   </div>
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="answer" name="answer">
+                    <input type="text" class="form-control" placeholder="answer" name="answer"/>
                   </div>
                  <button type="submit" class="btn btn-block btn-warning">Submit</button>
             </form>
@@ -39,5 +37,5 @@
     </div>
 </div>
 
-
+<script src="/js/handlecategory.js"></script>
 <jsp:include page="/blocks/footer.jsp" />

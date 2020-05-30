@@ -31,14 +31,6 @@ public class CategoryController {
         return mv;
     }
 
-    @GetMapping("/getall")
-    public ModelAndView getAll() {
-        ModelAndView mv=new ModelAndView("addquestion.jsp");
-        List<Category> category=impl.displayAllCategory();
-        mv.addObject("category",category);
-        return mv;
-    }
-
     @GetMapping("/getcategories")
     public List<Category> get() {
         return impl.displayAllCategory();

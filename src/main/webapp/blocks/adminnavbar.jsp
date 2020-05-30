@@ -23,7 +23,7 @@
               <ul class="dropdown-menu">
                 <li><a href="addcategory.jsp">Add or delete Category</a></li>
                 <li><a href="editcategory.jsp">edit or delete Category</a></li>
-                <li><a href="/getall">Add new questions</a></li>
+                <li><a href="addquestion.jsp">Add new questions</a></li>
                 <li><a href="editquestion.jsp">edit questions</a></li>
                 <li><a href="#">search questions</a></li>
               </ul>

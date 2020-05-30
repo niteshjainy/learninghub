@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -23,9 +24,9 @@ public class QuestionController {
     QuestionServiceImpl impl;
 
     @PostMapping("/addquestion")
-    public ModelAndView  addQuestion(@ModelAttribute Question questionObj){
+    public ModelAndView  addQuestion(@RequestParam Map<String, String> requestParams){
         ModelAndView mv = new ModelAndView("addquestion.jsp");
-          impl.addQuestion(questionObj);
+          impl.addQuestion(requestParams);
             mv.addObject("msg", "Added successful");
             return mv;
     }
