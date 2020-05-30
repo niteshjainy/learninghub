@@ -1,4 +1,4 @@
-var subjectCategory= $('#subjectCategory');
+var subjectCategory = $('#subjectCategory');
 $(function(){
     var show=$('#show');
     var selectcategory=$('#selectcategory');

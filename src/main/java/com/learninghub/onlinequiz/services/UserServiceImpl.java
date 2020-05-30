@@ -99,4 +99,10 @@ public class UserServiceImpl implements UserService {
 
     }
 
+
+    public void delete_category(Integer id) {
+        userrepo.deleteById(id);
+
+    }
+
 }
