@@ -15,7 +15,7 @@
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">User Management <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="showusers.jsp">All Users list</a></li>
-                <li><a href="#">deleted User List</a></li>
+                <li><a href="deleteduser.jsp">deleted User List</a></li>
               </ul>
             </li>
             <li class="dropdown">

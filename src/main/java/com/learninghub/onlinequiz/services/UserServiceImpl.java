@@ -1,6 +1,7 @@
 package com.learninghub.onlinequiz.services;
 
 import com.learninghub.onlinequiz.Repositories.UserRepo;
+import com.learninghub.onlinequiz.models.Category;
 import com.learninghub.onlinequiz.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -104,5 +105,22 @@ public class UserServiceImpl implements UserService {
         userrepo.deleteById(id);
 
     }
+
+    public User getUserById(Integer id) {
+        return userrepo.getOne(id);
+    }
+
+    public void updateUser(User user) {
+        Date now = new Date();
+        user.setCreatedAt(now);
+
+        user.setUpdatedAt(now);
+        user.setUserActive(false);
+        userrepo.save(user);
+
+
+    }
+
+
 
 }

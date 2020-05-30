@@ -4,12 +4,16 @@ import com.learninghub.onlinequiz.Repositories.UserRepo;
 import com.learninghub.onlinequiz.models.User;
 import com.learninghub.onlinequiz.services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
 public class UserController{
@@ -19,10 +23,17 @@ public class UserController{
     @Autowired
     UserRepo userrepo;
 
+
+
     @GetMapping("/registration")
     public ModelAndView registration(Model model){
        return impl.getRegistration(model);
 
+    }
+
+    @GetMapping("/getuser/{userId}")
+    public Optional<User> getUserById(@PathVariable Integer userId){
+        return userrepo.findById(userId);
     }
 
 
@@ -47,11 +58,20 @@ public class UserController{
         return impl.loginVerify(username,password,result);
     }
 
+    @GetMapping("/deletedusers")
+    public List<User> showDeletedUser(){
+        return userrepo.findAll().stream()
+                .filter(user -> user.getUserActive() == false)
+                .collect(Collectors.toList());
+    }
 
-    @GetMapping("/showdeletedusers")
-    public ModelAndView deletedUsers(){
-        ModelAndView mv = new ModelAndView("deleteduser.jsp");
-        return mv;
+
+
+
+    @DeleteMapping("/deleteduser/{userId}")
+    public void delete_user(@PathVariable Integer userId){
+        userrepo.deleteById(userId);
+
     }
 
 
@@ -61,17 +81,22 @@ public class UserController{
 
     @GetMapping("/getusers")
     public List<User> get() {
+      return userrepo.findAll().stream().filter(user -> user.getUserActive() == true).collect(Collectors.toList());
+    }
+
+    @GetMapping("/removeuser/{userId}")
+    public void deleteuser(@PathVariable int  userId) {
+        User user = userrepo.getOne(userId);
+        impl.updateUser(user);
+
+    }
+
+    @GetMapping("/getalluser")
+    public List<User> getallusers(){
         return userrepo.findAll();
     }
 
-    @DeleteMapping("/deleteuser/{userId}")
-    public void deleteuser(@PathVariable Integer userId) {
-        User user = userrepo.getOne(userId);
-        user.setUserActive(false);
-        userrepo.deleteById(userId);
-
-    }
-    }
+}
 
 
 
